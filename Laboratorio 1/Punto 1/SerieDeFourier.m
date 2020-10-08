@@ -25,7 +25,7 @@ function x = SerieDeFourier(fun,T0,N)
   result = inline("(1/T0)*quad(fun,-T0/2,T0/2)","t");
 
   
-  #Se realiza un ciclo en el cual en cada iteracion se aÒade un nuevo 
+  #Se realiza un ciclo en el cual en cada iteracion se a√±ade un nuevo 
   #termino a la aproximacion, este ciclo ira de 1 hasta el valor
   #maximo de truncamiento
   for i = 1:max(N)
@@ -40,13 +40,13 @@ function x = SerieDeFourier(fun,T0,N)
     b = inline("fun(t)*sin(n*w0*t)","t");
     bn = (2/T0)*quad(b,-T0/2,T0/2);
     
-    #Se aÒade el nuevo termino a la aproxiamcion, este se contruye a partir de
-    #los valores de an y bn, la frecuencia angular w0 y las dunciones seno y coseno
+    #Se a√±ade el nuevo termino a la aproximacion, este se contruye a partir de
+    #los valores de an y bn, la frecuencia angular w0 y las funciones seno y coseno
     result = inline("result(t).+(an*cos(n*w0*t)).+(bn*sin(n*w0*t))","t");
     
     
     #Si la actual iteracion es una de las iteraciones de truncamiento
-    #Solicitadas por el usuario se posee a graficar la aproxiamcion actual
+    #Solicitadas por el usuario se procede a graficar la aproximacion actual
     if (find(N==i))
       
       #Se grafica la proximacion para un valor de truncamiento k=i
@@ -56,7 +56,7 @@ function x = SerieDeFourier(fun,T0,N)
       xlabel ("t");
       ylabel ("x(t)");
       axis([-1.5*T0 1.5*T0 -0.2 1.2]);
-      printf("\n\nPresione <ENTER> para ver gr·ficas de la sinusoidal muestreada y de su espectro de magnitud \n\n\n"); 
+      printf("\n\nPresione <ENTER> para ver gr√°ficas de la sinusoidal muestreada y de su espectro de magnitud \n\n\n"); 
       pause; 
     endif
   endfor
