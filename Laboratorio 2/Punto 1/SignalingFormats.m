@@ -58,15 +58,15 @@ function res = SignalingFormats(md,Ts)
     endif
   endfor
   
-  #Leugo discretiza el valor t, si este es mayor a la mitad del pulso sera 0
-  #en caso contrario, sera el valor que se almacene en el arreglo
+  #Luego discretiza el valor t, si este es mayor a la mitad del pulso sera 0
+  #en caso contrario, será el valor que se almacene en el arreglo
   AMI = inline("(mod(t,Ts)<Ts/2).*Amd(fix(t/Ts)+1)","t");
   
   
   
   #MANCHESTER
-  #Primero se plantea el pulso el cual sera 1 si t es menor que la mitad del pulso y -1 si es mayor
-  #luego se discretiza el valor de t y si es 1 se mantendra la forma del pulso, si es cero se invertira
+  #Primero se plantea el pulso el cual será 1 si t es menor que la mitad del pulso y -1 si es mayor
+  #luego se discretiza el valor de t y si es 1 se mantendrá la forma del pulso, si es cero se invertirá
   Manchester = inline("(-(mod(t,Ts)>Ts/2)+(mod(t,Ts)<Ts/2)).*(-(md(fix(t/Ts)+1)==0) + (md(fix(t/Ts)+1)==1))","t");
   
 

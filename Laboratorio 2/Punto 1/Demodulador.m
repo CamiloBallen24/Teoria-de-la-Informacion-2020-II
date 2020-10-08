@@ -1,20 +1,20 @@
 #Entradas:
-#   ms  =   muestras de la señal del mensaje original
+#   ms  =   Muestras de la señal del mensaje original
 #   Tm  =   Periodo de la señal del mensaje original 
-#   k   =   Numero de veces que se muestreara la señal
-#   Mp  =   Altitud maxima de la señal (Solo para graficar)
+#   k   =   Número de veces que se muestreará la señal
+#   Mp  =   Altitud máxima de la señal (Sólo para graficar)
 
 function dem = Demodulador(ms,Tm,k, Mp)
   
-  #Se calculan algunos valores para poder aplicar la funcion
+  #Se calculan algunos valores para poder aplicar la función
   
   fm = 1/Tm;        #Calculando la frecuencia de la señal del mensaje
   
-  fs = k*fm;        #Se define la frecuencia de muestreo, la cualsera k veces la frecuencia de la señal
+  fs = k*fm;        #Se define la frecuencia de muestreo, la cual será k veces la frecuencia de la señal
   Ts = 1/fs;        #A partir de la frecuencia de muestreo se calcula el periodo de muestreo
   
   #Se calcula la frecuencia angular de la señal, el valor k se 
-  #debe a que se muestreo un periodo y no toda la funcion (-infinito, infinito)
+  #debe a que se muestreó un periodo y no toda la funcion (-infinito, infinito)
   wm = 2*pi*fm*k;   
   
   #Se definen algunas funciones iniciales

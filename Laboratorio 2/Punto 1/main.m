@@ -20,7 +20,7 @@ while(true)
   end_try_catch
 endwhile
 
-#Se leen el numero de veces que desea muestrear
+#Se lee el numero de veces que desea muestrear
 while(true)
   try 
     k = input("Ingrese el numero de veces que desea muestrear: ");
@@ -61,5 +61,5 @@ printf("\n\nPresione <ENTER> para ver gráficas correspondientes a los formatos d
 pause; 
 clf;
 
-#Llamada a los formatos de señalizacion
+#Llamada a los formatos de señalización
 SignalingFormats(enc, (Tm/k));
